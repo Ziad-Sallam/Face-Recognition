@@ -151,6 +151,8 @@ def main():
     # 4. Plotting (Relating K and Alpha to Accuracy)
     # =========================================================
     df_results = pd.DataFrame(results)
+    df_results.to_csv(os.path.join(OUTPUT_DIR, "kmeans_results.csv"), index=False)
+    print(f"  K-Means results saved → {OUTPUT_DIR}/kmeans_results.csv")
     
     plt.figure(figsize=(10, 5))
     sns.lineplot(data=df_results, x="K", y="Test Accuracy", hue="Alpha", marker="o")
